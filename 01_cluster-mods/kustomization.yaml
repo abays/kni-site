@@ -1,5 +1,5 @@
 bases:
-- ../../../profiles/testing.libvirt/01_cluster-mods
+- ../../../profiles/production.baremetal/01_cluster-mods
 
 patches:
 - manifests/cluster-ingress-02-config.patch.yaml

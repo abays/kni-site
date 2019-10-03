@@ -1,2 +1,2 @@
 bases:
-- ../../../profiles/testing.libvirt/03_services
+- ../../../profiles/production.baremetal/03_services

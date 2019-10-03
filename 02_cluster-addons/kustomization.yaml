@@ -1,2 +1,2 @@
 bases:
-- ../../../profiles/testing.libvirt/02_cluster-addons
+- ../../../profiles/production.baremetal/02_cluster-addons
