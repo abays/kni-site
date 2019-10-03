@@ -1,15 +1,9 @@
 bases:
 - git::https://gerrit.akraino.org/r/kni/blueprint-pae.git//profiles/production.baremetal/00_install-config
 
-patches:
-- install-config.patch.yaml
-
-patchesJson6902:
-- target:
-    version: v1
-    kind: InstallConfig
-    name: cluster
-  path: install-config.name.patch.yaml
+resources:
+- install-config.yaml
+- ha-lab-ipmi-creds.yaml
 
 transformers:
 - site-config.yaml
