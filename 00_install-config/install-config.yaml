@@ -100,3 +100,6 @@ platform:
             initrd: assets/rhel8/images/pxeboot/initrd.img # (default if not specified)
             kernel: assets/rhel8/images/pxeboot/vmlinuz # (default if not specified) 
 
+pullSecret: 'PULL_SECRET'
+sshKey: |
+   SSH_PUB_KEY
