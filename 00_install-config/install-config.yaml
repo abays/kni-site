@@ -3,11 +3,11 @@ kind: InstallConfig
 baseDomain: tt.testing
 compute:
  - name: worker
-   replicas: 2
+   replicas: 1
 controlPlane:
    name: master
    platform: {}
-   replicas: 3
+   replicas: 1
 metadata:
    name: test1
 networking:
@@ -38,23 +38,6 @@ platform:
             # And with type rhcos, the following are settings are available
             pxe: bios         # pxe boot type either bios (default if not specified) or uefi
             install_dev: sda  # where to install the operating system (sda is the default)
-      -  name: master-1
-         role: master
-         bmc:
-            address: ipmi://10.19.110.10
-            credentialsName: ha-lab-ipmi
-         bootMACAddress: 0C:C4:7A:DB:A8:59
-         sdnMacAddress: 0c:c4:7a:19:70:cc
-         hardwareProfile: default
-         # Not need to specify osProfile...
-      -  name: master-2
-         role: master
-         bmc:
-            address: ipmi://10.19.110.8
-            credentialsName: ha-lab-ipmi
-         bootMACAddress: 0C:C4:7A:DB:AC:03
-         sdnMacAddress: 0c:c4:7a:19:6f:7e
-         hardwareProfile: default
 
       # Worker nodes can be either rhcos (default) || centos (7.x) || rhel (8.x)
       -  name: worker-0
@@ -71,34 +54,6 @@ platform:
             # With type: rhcos the following are settings are available
             # pxe: bios|uefi    # pxe boot type either bios (default if not specified) or uefi
             # install_dev: sda  # where to install the operating system (sda is the default)
-
-      -  name: worker-1
-         role: worker
-         bmc:
-            address: ipmi://10.19.110.8
-            credentialsName: ha-lab-ipmi
-         bootMACAddress: 0C:C4:7A:DB:AC:03
-         sdnMacAddress: 0c:c4:7a:19:6f:7e
-         hardwareProfile: default
-         osProfile:
-            type: centos
-            # Don't set the following unless you know what you are doing
-            # initrd: assets/centos7/images/pxeboot/initrd.img (default if not specified)
-            # kernel: assets/centos7/images/pxeboot/vmlinuz" (default if not specified) 
-            # kickstart: "centos-rt-worker-kickstart.cfg"
-      -  name: worker-2
-         role: worker
-         bmc:
-            address: ipmi://110.19.110.8
-            credentialsName: ha-lab-ipmi
-         bootMACAddress: 0C:C4:7A:DB:AC:03
-         sdnMacAddress: 0c:c4:7a:19:6f:7e
-         hardwareProfile: default
-         osProfile:
-            type: rhel
-            # Don't set the following unless you know what you are doing
-            initrd: assets/rhel8/images/pxeboot/initrd.img # (default if not specified)
-            kernel: assets/rhel8/images/pxeboot/vmlinuz # (default if not specified) 
 
 pullSecret: 'PULL_SECRET'
 sshKey: |
