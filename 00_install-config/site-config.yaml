@@ -22,9 +22,6 @@ provisioningInfrastructure:
     # DHCP range start (usually provHost/interfaces/provisioningIpAddress + 1)
     provisioningDHCPStart: 172.22.0.11
     provisioningDHCPEnd: 172.22.0.51
-    
-    excludeInterfaces:
-      - eno1 
 
     # The baremetal networks's CIDR
     baremetalIpCidr: 192.168.111.0/24
